@@ -24,7 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/base.css",
+              "src/assets/css/index.css"
             ],
             "scripts": []
           },
@@ -88,7 +90,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/base.css",
+              "src/assets/css/index.css"
             ],
             "scripts": []
           }
@@ -119,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "todo-list"
+    }
+  },
+  "defaultProject": "todo-list",
+  "cli": {
+    "analytics": "7feafad9-e34c-4691-ac84-edd659ec703b"
+  }
 }
