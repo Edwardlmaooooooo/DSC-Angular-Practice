@@ -9,9 +9,19 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
 import { FilterPipe } from './filter.pipe';
 import { MainComponent } from './main/main.component';
 import { AboutComponent } from './about/about.component';
+import { HttpClientModule } from "@angular/common/http";
+import { UsersComponent } from './about/users/users.component'
 
 const routes: Routes = [
-  {path: '', component: MainComponent,},
+  {path: '', component: MainComponent, data: {
+    cond: "active",
+  }, resolve:{
+    // resolve 負責非同步的東西
+    // 會等跑完 resolve 才執行 construct
+    // Call API 使用
+    // 不建議呼叫太久，不然使用者體驗不好
+    // 要等太久，建議先進去，做出 Loading 的圖示
+  }},
   {path: "about", component: AboutComponent}
 ]
 
@@ -21,13 +31,15 @@ const routes: Routes = [
     MainComponent,
     TodoItemComponent,
     FilterPipe,
-    AboutComponent
+    AboutComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,28 @@
 <p>about works!</p>
+<ul>
+    <li *ngFor="let user of users">
+        <!--div>{{user | json}}</div-->
+        <app-users [user]="user"></app-users>
+    </li>
+</ul>
+<div *ngIf="user as data">
+    <form #formData="ngForm">
+        <div>
+            <label>Name</label>
+            <input name="name" [(ngModel)]="data.name" required/>
+        </div>
+        <div>
+            <label>User Name</label>
+            <input name="displayName" [(ngModel)]="data.username"/>
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="email" name="email" [(ngModel)]="data.email"/>
+        </div>
+        <button (disabled)="formData.invalid"> Submit</button>
+    </form>
+    {{formData.errors}}
+</div>
+<pre>
+    {{ user | json}}
+</pre>
