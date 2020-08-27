@@ -1,0 +1,18 @@
+{
+  "targets": {
+    "codingfun-a6b27": {
+      "hosting": {
+        "todo-list": [
+          "codingfun-a6b27"
+        ]
+      }
+    },
+    "angular-25428": {
+      "hosting": {
+        "todo-list": [
+          "angular-25428"
+        ]
+      }
+    }
+  }
+}

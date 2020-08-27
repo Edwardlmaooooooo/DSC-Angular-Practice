@@ -1,0 +1,46 @@
+<form [formGroup]="formData">
+    <div>
+        <label for="">姓名* </label>
+        <input type="text" formControlName="name">
+    </div>
+    <div>
+        <label for="">Email</label>
+        <input type="text" formControlName="email">
+    </div>
+    <div formGroupName="shipping">
+        <label for="">運送地址</label>
+        <div>
+            <label for="">縣市別</label>
+            <input type="text" formControlName="city">
+            <label for="">地址</label>
+            <input type="text" formControlName="address">
+        </div>
+    </div>
+    <div formArrayName="contactNumber">
+        <button (click)="addContact()"> Add Contact Number</button>
+        <button (click)="clearAll()"> Clear All</button>
+        <ul>
+            <li *ngFor="let group of contactNumbersArray.controls; let idx=index">
+                <div [formGroup]="group">
+                    <label for="">電話別</label>
+                    <input type="text" formControlName="phoneType">
+                    <label for="">電話號碼</label>
+                    <input type="text" formControlName="phoneNumber">
+                    <button (click)="removeContact(idx)">Remove</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</form>
+<pre>
+{{formData.value | json}}
+
+{{this.formData.getRawValue() | json }}用這個方法會看到包含被 block 掉的值
+</pre>
+
+<div>
+
+Form Invalid Status: {{ formData.invalid}}
+
+{{formData.get("name").errors | json}}
+</div>
