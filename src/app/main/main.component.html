@@ -1,3 +1,19 @@
+<div *ngIf="auth.user | async as user; else showLogin">
+  <h1>Hello {{ user.displayName }}!</h1>
+  <button (click)="logout()">Logout</button>
+</div>
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <button (click)="login()">Login with Google</button>
+</ng-template>
+
+<ng-container *ngIf="true">
+  <p>
+  有地方想顯示，就用 ng-container 包起來
+  這樣就不用多包一層 div
+  </p>
+</ng-container>
+
 <section class="todoapp">
     <header class="header">
       <h1>{{ title | uppercase}}</h1>
@@ -35,6 +51,7 @@
       <button class="clear-completed" (click)="clearCompleted()">Clear completed</button>
     </footer>
   </section>
+  <button (click)="gotoAbout()">Go to About</button>
   <footer class="info">
     <!--p>Double-click to edit a todo</p-->
     <!-- Remove the below line ↓ -->
